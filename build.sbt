@@ -1,7 +1,8 @@
 
 lazy val root = (project in file("."))
   .aggregate(core, persistenceQuery, sample)
-  .settings(skip in publish := true)
+  .settings(commonSettings: _*)
+  .settings(publish / skip := true)
 
 lazy val core = (project in file("core"))
   .settings(commonSettings: _*)
@@ -13,7 +14,7 @@ lazy val core = (project in file("core"))
 
 lazy val persistenceQuery = (project in file("persistence-query"))
   .settings(commonSettings: _*)
-  .settings(skip in publish := true)
+  .settings(publish / skip := true)
   .settings(
     name := "akka-persistence-query-sql-async",
     libraryDependencies ++= persistenceQueryDependencies
@@ -23,7 +24,7 @@ lazy val persistenceQuery = (project in file("persistence-query"))
 
 lazy val performanceTest = (project in file("performance-test"))
   .settings(commonSettings: _*)
-  .settings(skip in publish := true)
+  .settings(publish / skip := true)
   .settings(
     name := "akka-persistence-sql-async-performance-test"
   )
@@ -35,7 +36,7 @@ lazy val performanceTest = (project in file("performance-test"))
 
 lazy val sample = (project in file("sample"))
   .settings(commonSettings: _*)
-  .settings(skip in publish := true)
+  .settings(publish / skip := true)
   .settings(
     name := "akka-persistence-sql-async-sample",
     libraryDependencies ++= Seq(
@@ -84,7 +85,29 @@ lazy val persistenceQueryDependencies = Seq(
 
 lazy val publishSettings = Seq(
   publishMavenStyle := true,
-  publishArtifact in Test := false
+  publishArtifact in Test := false,
+  pomIncludeRepository := { _ => false },
+  pomExtra := {
+    <url>https://github.com/andriimartynov/akka-persistence-sql-async</url>
+      <licenses>
+        <license>
+          <name>Apache 2 License</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+          <distribution>repo</distribution>
+        </license>
+      </licenses>
+      <scm>
+        <url>git@github.com:andriimartynov/akka-persistence-sql-async.git</url>
+        <connection>scm:git:git@github.com:andriimartynov/akka-persistence-sql-async.git</connection>
+      </scm>
+      <developers>
+        <developer>
+          <id>andriimartynov</id>
+          <name>andriimartynov</name>
+          <url>https://github.com/andriimartynov</url>
+        </developer>
+      </developers>
+  }
 )
 
 credentials += Credentials(

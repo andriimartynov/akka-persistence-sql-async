@@ -58,7 +58,7 @@ class MySQLAsyncJournalSpec
       val WriterUuid = writerUuid
       probe.expectMsgPF() {
         case WriteMessageRejected(
-            PersistentImpl(payload, 6L, Pid, _, _, Actor.noSender, WriterUuid),
+            PersistentImpl(payload, 6L, Pid, _, _, Actor.noSender, WriterUuid, _),
             cause,
             _) =>
           payload should be(notSerializableEvent)
@@ -66,7 +66,7 @@ class MySQLAsyncJournalSpec
       }
       probe.expectMsgPF() {
         case WriteMessageRejected(
-            PersistentImpl(payload, 7L, Pid, _, _, Actor.noSender, WriterUuid),
+            PersistentImpl(payload, 7L, Pid, _, _, Actor.noSender, WriterUuid, _),
             cause,
             _) =>
           payload should be(notSerializableEvent)
@@ -74,7 +74,7 @@ class MySQLAsyncJournalSpec
       }
       probe.expectMsgPF() {
         case WriteMessageRejected(
-            PersistentImpl(payload, 8L, Pid, _, _, Actor.noSender, WriterUuid),
+            PersistentImpl(payload, 8L, Pid, _, _, Actor.noSender, WriterUuid, _),
             cause,
             _) =>
           payload should be(notSerializableEvent)

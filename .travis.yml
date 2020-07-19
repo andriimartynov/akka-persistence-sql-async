@@ -1,8 +1,13 @@
 language: scala
 
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+
 scala:
-  - 2.11.11
-  - 2.12.4
+  - 2.12.11
+  - 2.13.2
 
 services:
   - mysql

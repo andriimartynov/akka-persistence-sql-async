@@ -1,6 +1,10 @@
 # akka-persistence-sql-async
 
+[![Download](https://api.bintray.com/packages/andriimartynov/maven/akka-persistence-sql-async/images/download.svg) ](https://bintray.com/andriimartynov/maven/akka-persistence-sql-async/_latestVersion)
 [![Build Status](https://travis-ci.org/andriimartynov/akka-persistence-sql-async.svg)](https://travis-ci.org/andriimartynov/akka-persistence-sql-async)
+[![Apache License V.2](https://img.shields.io/badge/license-Apache%20V.2-blue.svg)](https://github.com/andriimartynov/sbt-terser/blob/master/LICENSE)
+
+Original project [akka-persistence-sql-async](https://github.com/okumin/akka-persistence-sql-async) is is no longer maintained. This is a is a fork.
 
 A journal and snapshot store plugin for [akka-persistence](http://doc.akka.io/docs/akka/2.4.12/scala/persistence.html) using RDBMS.
 Akka-persistence-sql-async executes queries by [ScalikeJDBC-Async](https://github.com/scalikejdbc/scalikejdbc-async) that provides non-blocking APIs to talk to databases.
@@ -16,22 +20,28 @@ This library is tested against [akka-persistence-tck](http://doc.akka.io/docs/ak
 
 ### Dependency
 
-You should add the following dependency.
+To resolve artifacts through Artifactory, simply add the following code snippet to your build.sbt file:
+
+```scala
+resolvers += Resolver.jcenterRepo
+```
+
+The current version is 0.6.0, which is cross-built against Scala 2.12.x and 2.13.x.
 
 ```
-libraryDependencies += "com.okumin" %% "akka-persistence-sql-async" % "0.5.1"
+libraryDependencies += "com.github.andriimartynov" %% "akka-persistence-sql-async" % "0.6.0"
 ```
 
 And then, please include the mysql-async if you use MySQL.
 
 ```
-libraryDependencies += "com.github.mauricio" %% "mysql-async" % "0.2.20"
+libraryDependencies += "com.github.jasync-sql" %% "jasync-mysql" % "1.1.3"
 ```
 
 And if you use PostgreSQL.
 
 ```
-libraryDependencies += "com.github.mauricio" %% "postgresql-async" % "0.2.20"
+libraryDependencies += "com.github.jasync-sql" %% "jasync-postgresql" % "1.1.3"
 ```
 
 ### Configuration
@@ -130,6 +140,10 @@ CREATE TABLE IF NOT EXISTS {your_snapshot_table_name} (
 ```
 
 ## Release Notes
+
+### 0.6.0 - Jul 19, 2020
+- Migration from mauricio to jasync
+- Upgrade to Akka 2.5.30
 
 ### 0.5.1 - Jan 2, 2018
 - Support connect/query timeout

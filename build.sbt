@@ -51,7 +51,7 @@ lazy val Scala213 = "2.13.2"
 
 lazy val commonSettings = Seq(
   organization := "com.github.andriimartynov",
-  version := "0.6.0",
+  version := "0.6.1",
   scalaVersion := Scala212,
   crossScalaVersions := Seq(Scala212, Scala213),
   parallelExecution in Test := false,
@@ -64,7 +64,7 @@ lazy val commonSettings = Seq(
   licenses += ("Apache-2.0", new URL("https://www.apache.org/licenses/LICENSE-2.0.txt"))
 )
 
-val akkaVersion = "2.5.30"
+val akkaVersion = "2.5.31"
 val jasyncVersion = "1.1.3"
 
 lazy val commonDependencies = Seq(

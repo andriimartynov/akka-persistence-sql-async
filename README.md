@@ -26,10 +26,10 @@ To resolve artifacts through Artifactory, simply add the following code snippet 
 resolvers += Resolver.jcenterRepo
 ```
 
-The current version is 0.6.0, which is cross-built against Scala 2.12.x and 2.13.x.
+The current version is 0.6.1, which is cross-built against Scala 2.12.x and 2.13.x.
 
 ```
-libraryDependencies += "com.github.andriimartynov" %% "akka-persistence-sql-async" % "0.6.0"
+libraryDependencies += "com.github.andriimartynov" %% "akka-persistence-sql-async" % "0.6.1"
 ```
 
 And then, please include the mysql-async if you use MySQL.
@@ -140,6 +140,9 @@ CREATE TABLE IF NOT EXISTS {your_snapshot_table_name} (
 ```
 
 ## Release Notes
+
+### 0.6.1 - Jul 20, 2020
+- Upgrade to Akka 2.5.31
 
 ### 0.6.0 - Jul 19, 2020
 - Migration from mauricio to jasync

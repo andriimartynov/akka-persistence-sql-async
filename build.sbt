@@ -10,7 +10,6 @@ lazy val core = (project in file("core"))
   .settings(
     name := "akka-persistence-sql-async"
   )
-  .enablePlugins(AutomateHeaderPlugin)
 
 lazy val persistenceQuery = (project in file("persistence-query"))
   .settings(commonSettings: _*)
@@ -20,7 +19,6 @@ lazy val persistenceQuery = (project in file("persistence-query"))
     libraryDependencies ++= persistenceQueryDependencies
   )
   .dependsOn(core)
-  .enablePlugins(AutomateHeaderPlugin)
 
 lazy val performanceTest = (project in file("performance-test"))
   .settings(commonSettings: _*)
@@ -32,7 +30,6 @@ lazy val performanceTest = (project in file("performance-test"))
     core,
     core % "test->test"
   )
-  .enablePlugins(AutomateHeaderPlugin)
 
 lazy val sample = (project in file("sample"))
   .settings(commonSettings: _*)
@@ -44,14 +41,13 @@ lazy val sample = (project in file("sample"))
     )
   )
   .dependsOn(core)
-  .enablePlugins(AutomateHeaderPlugin)
 
 lazy val Scala212 = "2.12.11"
 lazy val Scala213 = "2.13.2"
 
 lazy val commonSettings = Seq(
   organization := "com.github.andriimartynov",
-  version := "0.6.1",
+  version := "0.7.0",
   scalaVersion := Scala212,
   crossScalaVersions := Seq(Scala212, Scala213),
   parallelExecution in Test := false,
@@ -64,7 +60,7 @@ lazy val commonSettings = Seq(
   licenses += ("Apache-2.0", new URL("https://www.apache.org/licenses/LICENSE-2.0.txt"))
 )
 
-val akkaVersion = "2.5.31"
+val akkaVersion = "2.6.0"
 val jasyncVersion = "1.1.3"
 
 lazy val commonDependencies = Seq(

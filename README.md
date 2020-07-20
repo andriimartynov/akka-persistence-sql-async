@@ -16,6 +16,10 @@ Akka-persistence-sql-async supports following databases.
 
 This library is tested against [akka-persistence-tck](http://doc.akka.io/docs/akka/2.4.12/scala/persistence.html#plugin-tck).
 
+## Note
+
+This branch (`master`) holds the latest version (major version `0.7.x`)  for latest akka version supported (`2.6`); branch [akka-2.5.x](https://github.com/andriimartynov/akka-persistence-sql-async/tree/akka-2.5.x) holds the akka-persistence-sql-async version for akka `2.5` version (major.minor version `0.6.x`).
+
 ## Usage
 
 ### Dependency
@@ -26,10 +30,10 @@ To resolve artifacts through Artifactory, simply add the following code snippet 
 resolvers += Resolver.jcenterRepo
 ```
 
-The current version is 0.6.1, which is cross-built against Scala 2.12.x and 2.13.x.
+The current version is 0.7.0, which is cross-built against Scala 2.12.x and 2.13.x.
 
 ```
-libraryDependencies += "com.github.andriimartynov" %% "akka-persistence-sql-async" % "0.6.1"
+libraryDependencies += "com.github.andriimartynov" %% "akka-persistence-sql-async" % "0.7.0"
 ```
 
 And then, please include the mysql-async if you use MySQL.
@@ -141,12 +145,15 @@ CREATE TABLE IF NOT EXISTS {your_snapshot_table_name} (
 
 ## Release Notes
 
+### 0.7.0 - Jul 21, 2020
+- Update Akka to 2.6.0
+
 ### 0.6.1 - Jul 20, 2020
-- Upgrade to Akka 2.5.31
+- Update Akka to 2.5.31
 
 ### 0.6.0 - Jul 19, 2020
 - Migration from mauricio to jasync
-- Upgrade to Akka 2.5.30
+- Update Akka to 2.5.30
 
 ### 0.5.1 - Jan 2, 2018
 - Support connect/query timeout

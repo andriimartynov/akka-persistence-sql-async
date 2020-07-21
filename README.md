@@ -142,11 +142,11 @@ CREATE TABLE IF NOT EXISTS {your_snapshot_table_name} (
 ## Release Notes
 
 ### 0.6.1 - Jul 20, 2020
-- Upgrade to Akka 2.5.31
+- Update Akka to 2.5.31
 
 ### 0.6.0 - Jul 19, 2020
 - Migration from mauricio to jasync
-- Upgrade to Akka 2.5.30
+- Update Akka to 2.5.30
 
 ### 0.5.1 - Jan 2, 2018
 - Support connect/query timeout
